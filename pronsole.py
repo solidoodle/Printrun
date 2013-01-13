@@ -141,10 +141,10 @@ class Settings:
         # defaults here.
         # the initial value determines the type
         self.port = ""
-        self.baudrate = 115200
-        self.bedtemp_abs = 110
+        self.baudrate = 250000 #changed for Solidoodle 
+        self.bedtemp_abs = 100 #changed for Solidoodle 
         self.bedtemp_pla = 60
-        self.temperature_abs = 230
+        self.temperature_abs = 200 #changed for Solidoodle 
         self.temperature_pla = 185
         self.xy_feedrate = 3000
         self.z_feedrate = 200

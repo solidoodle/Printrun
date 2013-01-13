@@ -80,7 +80,7 @@ class Tee(object):
 class PronterWindow(MainWindow, pronsole.pronsole):
     def __init__(self, filename = None, size = winsize):
         pronsole.pronsole.__init__(self)
-        self.settings.build_dimensions = '200x200x100+0+0+0' #default build dimensions are 200x200x100 with 0, 0, 0 in the corner of the bed
+        self.settings.build_dimensions = '150x150x-75-75+0' #Changed for Solidoodle 
         self.settings.last_bed_temperature = 0.0
         self.settings.last_file_path = ""
         self.settings.last_temperature = 0.0
@@ -1407,7 +1407,7 @@ class PronterWindow(MainWindow, pronsole.pronsole):
             pass
         if self.serialport.GetValue()!="":
             port = str(self.serialport.GetValue())
-        baud = 115200
+        baud = 250000 #changed for Solidoodle 
         try:
             baud = int(self.baud.GetValue())
         except:
@@ -1512,7 +1512,7 @@ class PronterWindow(MainWindow, pronsole.pronsole):
         "[^\d+-]*([+-]\d+)?" + # Y corner coordinate
         "[^\d+-]*([+-]\d+)?"   # Z corner coordinate
         ,bdim).groups()
-        defaults = [200, 200, 100, 0, 0, 0]
+        defaults = [150, 150, 100, -75, -75, 0] #changed for solidoodle - may still be wrong 
         bdl_float = [float(value) if value else defaults[i] for i, value in enumerate(bdl)]
         return bdl_float
 
